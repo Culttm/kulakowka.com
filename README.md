@@ -5,4 +5,6 @@ kulakowka.com
 
 `cd kulakowka.com`
 
+`npm install`
+
 `gulp`
