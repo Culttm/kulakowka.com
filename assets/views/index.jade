@@ -2,6 +2,7 @@
 - var pageDescription = "Personal homepage of Anton Kulakov";
 - var pageKeywords = "kulakowka, kulakowka.com, front-end, front-end developer, developer portfolio, portfolio, webdeveloper, web-developer";
 - var pageImage = "http://kulakowka.com/images/avatar.png";
+- var pagePhoto = "http://kulakowka.com/images/photo.jpg";
 - var siteUrl = "http://kulakowka.com";
 doctype html
 html( lang="en" )
@@ -10,6 +11,7 @@ html( lang="en" )
     meta( content=pageDescription, name="description" )
     meta( content=pageKeywords, name="keywords" )
     meta( content=pageImage, property="og:image" )
+    meta( content=pagePhoto, property="og:image" )
     meta( content=pageTitle, property="og:title" )
     meta( content="profile", property="og:type" )
     meta( content="http://kulakowka.com", property="og:url" )
@@ -46,13 +48,21 @@ html( lang="en" )
 
   body
     .profile( itemscope, itemtype="http://schema.org/Person"  )
+      
       .avatar
-        img( src="images/avatar.png", itemprop="image" )
+        img.pic( src="images/avatar.png", itemprop="image" )
+        img.photo( src="images/photo.jpg", itemprop="image" )
 
       h1.username( itemprop="name" )= "Anton Kulakov"
+      
       h2.about
         span( itemprop="jobTitle" )!= "Front-end&nbsp;developer"
         != " of&nbsp;Thematic&nbsp;Media"
+      
+      .nickname
+        span.icon-user
+        a( href="http://habrahabr.ru/users/kulakowka/", target="_blank" )= "kulakowka"
+
       .accounts
         a( href="https://github.com/kulakowka", itemprop="url" )
           span.icon-github
