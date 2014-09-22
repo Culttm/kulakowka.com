@@ -6,8 +6,9 @@ body
   font-family ProximaNova, "Helvetica Neue", Helvetica, "Lucida Grande", tahoma, verdana, arial, sans-serif
   min-width 200px
 .profile
-  margin 100px auto
-
+  margin 100px auto 0
+  @media screen and (max-width: 600px)
+    margin 50px auto 0
   .avatar
     width 150px
     height 150px
@@ -65,17 +66,11 @@ body
       width 100px
       &:hover 
         background #e1e1e1
-      img 
-        vertical-align text-bottom
-        margin-right 5px
-        height 16px
-        width 16px
-     
+      [class^="icon-"]
+        margin-right: 5px
+
     @media screen and (max-width: 600px)
       margin 30px
       a
         width auto
-        span 
-          display none
-        img 
-          margin-right 0
+      

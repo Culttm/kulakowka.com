@@ -25,8 +25,6 @@ gulp.task('styles', function() {
     .pipe(notify({ message: 'Styles task complete' }));
 });
 
-
-
 // Templates
 gulp.task('templates', function() {
   
@@ -46,8 +44,6 @@ gulp.task('templates', function() {
 gulp.task('scripts', function() {
   return gulp.src('./assets/javascripts/**/*.js')
     .pipe(concat('main.js'))
-    //.pipe(gulp.dest('./public/js/'))
-    //.pipe(rename({ suffix: '.min' }))
     .pipe(uglify())
     .pipe(gulp.dest('./public/js/'))
     .pipe(notify({ message: 'Scripts task complete' }));
@@ -61,11 +57,9 @@ gulp.task('images', function() {
     .pipe(notify({ message: 'Images task complete' }));
 });
 
- 
 // Clean
 gulp.task('clean', function(cb) {
-    //del(['dist/assets/css', 'dist/assets/js', 'dist/assets/img'], cb)
-    del(['public'], cb)
+    del(['public/js', 'public/css', 'public/images', 'public/*.html'], cb)
 });
  
 // Default task
@@ -74,7 +68,8 @@ gulp.task('default', ['clean'], function() {
     gulp.start( 'styles', 'scripts', 'templates', 'images');
 });
  
-// Deploy tast
+// Deploy task
+// https://www.npmjs.org/package/gulp-sftp
 gulp.task('deploy', function () {
     return gulp.src('./public/*')
         .pipe(sftp({
@@ -84,7 +79,6 @@ gulp.task('deploy', function () {
         }));
 });
 
-// https://www.npmjs.org/package/gulp-sftp - сделать таск который деплоит всю хуйню :) 
 
 // Watch
 gulp.task('watch', function() {
