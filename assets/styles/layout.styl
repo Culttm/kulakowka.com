@@ -1,0 +1,81 @@
+body
+  margin 0
+  padding 0
+  background white
+  text-align center
+  font-family ProximaNova, "Helvetica Neue", Helvetica, "Lucida Grande", tahoma, verdana, arial, sans-serif
+  min-width 200px
+.profile
+  margin 100px auto
+
+  .avatar
+    width 150px
+    height 150px
+    display block 
+    margin auto
+    overflow hidden 
+    border-radius 150px
+    border 5px solid #eee 
+    transition border-color 5s ease
+    &:hover 
+      border-color #333 
+    img 
+      width 150px
+      height 150px
+      display block
+        
+  h1.username
+    display block
+    margin 10px 20px
+    padding 0
+    color blue
+    font-size 60px
+    line-height 1.2em
+    color #333
+    @media screen and (max-width: 600px)
+      font-size 40px
+
+
+  h2.about  
+    display block
+    margin 0 20px
+    padding 0
+    font-weight normal
+    color #888
+    font-size 18px
+    line-height 1.5em
+    @media screen and (max-width: 600px)
+      font-size 14px
+
+
+  .accounts
+    margin 50px
+    text-align center
+    a 
+      color #666
+      text-decoration none
+      margin 10px 10px
+      display inline-block
+      padding 10px 20px
+      font-size 16px
+      line-height 1.8em
+      border-radius 10px 
+      background #eee
+      white-space nowrap
+      width 100px
+      &:hover 
+        background #e1e1e1
+      img 
+        vertical-align text-bottom
+        margin-right 5px
+        height 16px
+        width 16px
+     
+    @media screen and (max-width: 600px)
+      margin 30px
+      a
+        width auto
+        span 
+          display none
+        img 
+          margin-right 0

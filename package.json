@@ -1,0 +1,26 @@
+{
+  "name": "kulakowka.com",
+  "version": "0.0.1",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kulakowka/kulakowka.com"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.8",
+    "gulp-concat": "^2.4.0",
+    "gulp-uglify": "^1.0.1",
+    "gulp-rename": "^1.2.0",
+    "gulp-watch": "^1.0.2",
+    "del": "^0.1.3",
+    "gulp-minify-css": "^0.3.8",
+    "gulp-notify": "^1.5.1",
+    "gulp-cache": "^0.2.2",
+    "gulp-jshint": "^1.8.4",
+    "gulp-autoprefixer": "^1.0.0",
+    "gulp-stylus": "^1.3.0",
+    "gulp-jade": "^0.8.0",
+    "gulp-imagemin": "^1.0.1",
+    "gulp-livereload": "^2.1.1"
+  }
+}
