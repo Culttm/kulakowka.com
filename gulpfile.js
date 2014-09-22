@@ -25,17 +25,10 @@ gulp.task('styles', function() {
     .pipe(notify({ message: 'Styles task complete' }));
 });
 
+
+
 // Templates
 gulp.task('templates', function() {
-  
-  // TODO: потом сделать отдельный таск build, который будет билдить все в один файл.
-  // туда будет подключены стили и яваскрипты, а может быть даже картинки :) 
-  // fs.readFile('./public/js/main.js', 'utf8', function (err,data) {
-  //   if (err) {
-  //     return console.log(err);
-  //   }
-  //   console.log(data);
-  // });
   
   var config = {
     revision: new Date().getTime()
@@ -81,6 +74,18 @@ gulp.task('default', ['clean'], function() {
     gulp.start( 'styles', 'scripts', 'templates', 'images');
 });
  
+// Deploy tast
+gulp.task('deploy', function () {
+    return gulp.src('./public/*')
+        .pipe(sftp({
+            host: 'kulakowka.com',
+            auth: 'privateKey',
+            remotePath: '/vhosts/kulakowka.com/'
+        }));
+});
+
+// https://www.npmjs.org/package/gulp-sftp - сделать таск который деплоит всю хуйню :) 
+
 // Watch
 gulp.task('watch', function() {
  
