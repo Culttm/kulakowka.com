@@ -68,17 +68,6 @@ gulp.task('default', ['clean'], function() {
     gulp.start( 'styles', 'scripts', 'templates', 'images');
 });
  
-// Deploy task
-// https://www.npmjs.org/package/gulp-sftp
-gulp.task('deploy', function () {
-    return gulp.src('./public/*')
-        .pipe(sftp({
-            host: 'kulakowka.com',
-            auth: 'privateKey',
-            remotePath: '/vhosts/kulakowka.com/'
-        }));
-});
-
 
 // Watch
 gulp.task('watch', function() {
