@@ -1,69 +1,60 @@
-- var pageTitle = "Anton Kulakov - Front-end developer";
-- var pageDescription = "Web-developer, Anton Kulakov";
-- var pageKeywords = "kulakowka, kulakowka.com, front-end, front-end developer, developer portfolio, portfolio, webdeveloper, web-developer";
-- var pageImage = "http://kulakowka.com/images/avatar.png";
-- var pagePhoto = "http://kulakowka.com/images/photo.jpg";
-- var siteUrl = "http://kulakowka.com";
 doctype html
 html( lang="en" )
   head( prefix="og: http://ogp.me/ns#" )
+    meta( charset='utf-8' )
+    meta( content='Dynamic', name='document-state' )
+    meta( content='width=device-width,initial-scale=1,user-scalable=no', name='viewport' )
+
     title= pageTitle
     meta( content=pageDescription, name="description" )
     meta( content=pageKeywords, name="keywords" )
     meta( content=pageImage, property="og:image" )
-    meta( content=pagePhoto, property="og:image" )
     meta( content=pageTitle, property="og:title" )
     meta( content="profile", property="og:type" )
-    meta( content="http://kulakowka.com", property="og:url" )
-    meta( content="kulakowka", property="og:profile:username" )
-    meta( content="Anton", property="og:profile:first_name" )
-    meta( content="Kulakov", property="og:profile:last_name" )
-    meta( content="male", property="og:profile:gender" )
-    meta( content="Kulakowka.com", property="og:site_name" )
-    meta( content="@kulakowka", property="twitter:site" )
-    meta( content="http://kulakowka.com", property="twitter:domain" )
-    meta( charset='utf-8' )
-    meta( content='Dynamic', name='document-state' )
-    meta( content="kulakowka.com", name="generator" )
-    meta( content="Anton Kulakov", name="author" )
-    meta( content='width=device-width,initial-scale=1,user-scalable=no', name='viewport' )
+    meta( content=siteUrl, property="og:url" )
+    meta( content=username, property="og:profile:username" )
+    meta( content=first_name, property="og:profile:first_name" )
+    meta( content=last_name, property="og:profile:last_name" )
+    meta( content=gender, property="og:profile:gender" )
+    meta( content=siteName, property="og:site_name" )
+    meta( content=(first_name+' '+last_name), name="author" )
     meta( content=pageTitle, name='apple-mobile-web-app-title' )
-    meta( name='yandex-verification', content='68e82ab8d11871a0' )
+    
     link( href=pageImage, rel='apple-touch-startup-image' )
     link( href=pageImage, rel='icon' type='image/png' )
     link( href=pageImage, rel='apple-touch-icon' type='image/png' )
-    link( href="css/main.css?r=#{revision}", media="all", rel="stylesheet" )
-  
-    script.
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-6538950-17', 'auto');  
-      ga('require', 'displayfeatures');
-      ga('require', 'linkid', 'linkid.js');
-      ga('send', 'pageview');
-    //- script.
-    //-   document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+    link( href="css/main.css?r=#{revision}", media="all", rel="stylesheet" )
+    
+    if development
+      script.
+        document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+    else          
+      script.
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-6538950-17', 'auto');  
+        ga('require', 'displayfeatures');
+        ga('require', 'linkid', 'linkid.js');
+        ga('send', 'pageview');
+    
+      
 
   body
+    
     .profile( itemscope, itemtype="http://schema.org/Person"  )
       
       .avatar
-        img.pic( src="images/avatar.png", itemprop="image" )
-        img.photo( src="images/photo.jpg", itemprop="image" )
+        img.pic( src=pageImage, itemprop="image" )
 
-      h1.username( itemprop="name" )= "Anton Kulakov"
+      h1.username( itemprop="name" )= [first_name, last_name].join(' ')
       
       h2.about
-        span( itemprop="jobTitle" )!= "Front-end&nbsp;developer"
-        != "&nbsp;at&nbsp;Thematic&nbsp;Media"
+        span( itemprop="jobTitle" )!= jobTitle
       
-      h3.nickname
-        span.icon-user
-        a( href="http://habrahabr.ru/users/kulakowka/", target="_blank" )= "kulakowka"
-
       .accounts
         a( href="https://github.com/kulakowka", itemprop="url" )
           span.icon-github

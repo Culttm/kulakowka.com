@@ -12,6 +12,7 @@ var gulp = require('gulp'),
     del = require('del'),
     jade = require('gulp-jade'),
     fs = require('fs'),
+    config = require('./config'),
     imagemin = require('gulp-imagemin');
 
 // Styles
@@ -28,9 +29,7 @@ gulp.task('styles', function() {
 // Templates
 gulp.task('templates', function() {
   
-  var config = {
-    revision: new Date().getTime()
-  };    
+  config.revision = new Date().getTime();  // add revision
 
   gulp.src('./assets/views/**/*.jade')
     .pipe(jade({
