@@ -1,8 +1,8 @@
 var config = {
 
   // User info
-  pageTitle:       "Anton Kulakov - Front-end developer",
-  pageDescription: "Web-developer, Anton Kulakov",
+  pageTitle:       "Anton Kulakov",
+  pageDescription: "Front-end developer at Thematic Media",
   pageKeywords:    "kulakowka, kulakowka.com, front-end, front-end developer, developer portfolio, portfolio, webdeveloper, web-developer",
   pageImage:       "http://kulakowka.com/images/avatar.png",
   pagePhoto:       "http://kulakowka.com/images/photo.jpg",
